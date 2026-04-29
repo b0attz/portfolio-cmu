@@ -369,7 +369,7 @@ ul {
 
 .skill-card {
     background: var(--bg-card);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 16px;
     text-align: center;
     border: 1px solid var(--border);
@@ -383,8 +383,15 @@ ul {
 }
 
 .skill-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.skill-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
 }
 
 .skill-card h3 {
@@ -414,6 +421,7 @@ ul {
     border: 1px solid var(--border);
     transition: all 0.2s;
     cursor: pointer;
+    position: relative;
 }
 
 .project-card:hover {
@@ -423,27 +431,48 @@ ul {
 }
 
 .project-img {
-    height: 120px;
+    height: 220px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     background: var(--project-img-bg);
 }
 
-.project-info {
-    padding: 1.25rem;
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.project-info h3 {
-    font-size: 1.05rem;
-    margin-bottom: 0.375rem;
-    color: var(--text);
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.project-info p {
-    color: var(--text-light);
-    font-size: 0.9rem;
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.project-overlay p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
     margin-bottom: 0.75rem;
 }
 
@@ -565,7 +594,7 @@ ul {
     }
 
     .skill-icon {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .contact-links {
@@ -619,7 +648,8 @@ ul {
     }
 
     .project-img {
-        height: 130px;
+        height: 180px;
+        font-size: 2.75rem;
     }
 }
 
@@ -660,11 +690,16 @@ ul {
     }
 
     .skill-card {
-        padding: 2rem 1.5rem;
+        padding: 1.25rem 1rem;
     }
 
     .skill-icon {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .skill-icon img {
+        width: 52px;
+        height: 52px;
     }
 
     .projects-grid {
@@ -673,7 +708,8 @@ ul {
     }
 
     .project-img {
-        height: 140px;
+        height: 240px;
+        font-size: 3rem;
     }
 }
 
@@ -697,11 +733,16 @@ ul {
     }
 
     .skill-card {
-        padding: 2.5rem 2rem;
+        padding: 1.5rem 1rem;
     }
 
     .skill-icon {
-        font-size: 3rem;
+        font-size: 2.25rem;
+    }
+
+    .skill-icon img {
+        width: 56px;
+        height: 56px;
     }
 }
 
@@ -766,12 +807,8 @@ ul {
     }
 
     .project-img {
-        height: 100px;
-        font-size: 2.5rem;
-    }
-
-    .project-info {
-        padding: 1rem;
+        height: 180px;
+        font-size: 2.25rem;
     }
 
     .contact-item {
