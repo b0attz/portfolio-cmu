@@ -831,7 +831,28 @@ ul {
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-    .project-card:active,
+    .project-card {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Mobile: overlay always visible, no hover lift */
+    .project-overlay {
+        opacity: 1;
+        z-index: 1;
+        background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+    }
+
+    .project-card:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--border);
+    }
+
+    .project-card:active {
+        transform: scale(0.98);
+    }
+
     .skill-card:active,
     .contact-item:active {
         transform: scale(0.98);
@@ -839,6 +860,17 @@ ul {
 
     .btn:active {
         transform: scale(0.97);
+    }
+}
+
+/* Desktop: hover effects enabled */
+@media (hover: hover) and (pointer: fine) {
+    .project-overlay {
+        opacity: 0;
+    }
+
+    .project-card:hover .project-overlay {
+        opacity: 1;
     }
 }
 
